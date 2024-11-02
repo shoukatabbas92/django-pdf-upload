@@ -1,0 +1,15 @@
+{% extends 'pdfs/base.html' %}
+
+{% block title %}{{ pdf.title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ pdf.title }}</h2>
+    {% comment %} <object data="{{ pdf.file.url }}" type="application/pdf" width="100%" height="500px">
+        <p>Your browser does not support displaying PDFs. 
+           <a href="{{ pdf.file.url }}">Download PDF</a>.</p>
+    </object> {% endcomment %}
+    <br>
+    <a href="{{ pdf.file.url }}" class="btn btn-success" target="__blank">Open or Download</a>
+    
+    <a href="{% url 'home' %}">Back to Home</a>
+{% endblock %}

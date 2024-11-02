@@ -1,0 +1,15 @@
+{% extends 'pdfs/base.html' %}
+
+{% block content %}
+ 
+<h2>Login Form</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <h1>Hey</h1>
+     Username: <input type="text" placeholder="Username" name="username"><br>
+    Password: <input type="Password" placeholder="Password" name="password"><br>
+    <button >Login</button>
+</form>
+<p>Do not have a account ?  <a href="{% url 'register' %}">Regiter Here</a></p>
+{% endblock %}

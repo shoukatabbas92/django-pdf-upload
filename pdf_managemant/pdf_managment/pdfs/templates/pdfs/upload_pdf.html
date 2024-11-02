@@ -1,0 +1,13 @@
+{% extends 'pdfs/base.html' %}
+
+{% block title %}Upload PDF{% endblock %}
+
+{% block content %}
+    <h2>Upload a PDF</h2>
+    <form method="post" enctype="multipart/form-data" action="{% url 'upload_pdf'%}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    <a href="{% url 'home' %}">Back to Home</a>
+{% endblock %}

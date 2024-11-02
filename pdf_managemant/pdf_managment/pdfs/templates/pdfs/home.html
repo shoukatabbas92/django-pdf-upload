@@ -1,0 +1,20 @@
+{% extends 'pdfs/base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+    <h2>Welcome, {{ user.username }}!</h2>
+    <h3>Your PDFs:</h3>
+    <ul>
+        {% for pdf in pdfs %}
+            <li>
+                <a href="{% url 'view_pdf' pdf.id %}">{{ pdf.title }}</a> | 
+                <a href="{% url 'delete_pdf' pdf.id %}">Delete</a>
+            </li>
+        {% empty %}
+            <li>No PDFs uploaded yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
